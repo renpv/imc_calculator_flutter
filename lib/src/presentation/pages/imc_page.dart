@@ -59,7 +59,7 @@ class _ImcPageState extends State<ImcPage> {
                   builder: (context, state) {
                     if (state is ImcInitial) {
                       return const Text(
-                        "Digite seu peso e altura para calcular",
+                        "Digite corretamente seu peso e altura para calcular",
                         style: TextStyle(fontSize: 18),
                       );
                     } else if (state is ImcCalculated) {
