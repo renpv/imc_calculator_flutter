@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubits/imc_cubit.dart';
 
 class ImcPage extends StatefulWidget {
-  const ImcPage({Key? key}) : super(key: key);
+  const ImcPage({super.key});
 
   @override
   State<ImcPage> createState() => _ImcPageState();
