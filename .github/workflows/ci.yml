@@ -1,0 +1,33 @@
+name: Flutter CI
+
+# Dispara o workflow em pull requests para a branch develop
+on:
+    pull_request:
+        branches: [develop]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            # 1. Baixa o código do repositório
+            - uses: actions/checkout@v3
+
+            # 2. Configura o ambiente Flutter
+            - uses: subosito/flutter-action@v2
+              with:
+                  flutter-version: "3.35.4" # Use a versão do seu Flutter
+                  channel: "stable"
+                  cache: true
+
+            # 3. Baixa as dependências do projeto
+            - run: flutter pub get
+
+            # 4. Verifica a formatação do código
+            - run: dart format --output=none --set-exit-if-changed .
+
+            # 5. Roda a análise estática
+            - run: flutter analyze
+
+            # 6. Roda os testes
+            - run: flutter test
